@@ -19,6 +19,7 @@
         const WEBINTEGRATIONID = '9Cq_47idi6SdjwnPfb87nEj2gYbmO-rQ';
         const APPID = '1323605b-ea21-4b1d-8bde-8e05837a8a05';
         const SHEETID = 'b6491bc5-2afb-4661-9b2e-b9624eb0e440';
+        const OBJID = '145c0dfa-f7bf-4983-b35c-2a58a5dc1369';
 
         //    MAIN
 
@@ -28,7 +29,7 @@
             const [session, enigmaApp] = await connectEnigma(qcsHeaders, APPID);
             handleDisconnect(session);
             const theme = await getTheme(enigmaApp);
-            renderSingleIframe('qlik_frame', APPID, SHEETID, theme);
+            renderSingleIframe('qlik_frame', APPID, SHEETID, OBJID, theme);
         })();
 
         //    LOGIN
@@ -186,8 +187,8 @@
 
         //    HELPER FUNCTION TO GENERATE IFRAME
 
-        function renderSingleIframe(frameId, appId, sheetId, theme) {
-            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&theme=${theme}&opt=ctxmenu,currsel`;
+        function renderSingleIframe(frameId, appId, sheetId, objId, theme) {
+            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu,currsel`;
             document.getElementById(frameId).setAttribute('src', frameUrl);
         }
 
