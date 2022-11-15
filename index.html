@@ -198,7 +198,7 @@
 
         function renderSingleIframe(frameId, appId, sheetId, objId, theme) {
             //a diferencia de sense las opciones "opt" se separan con coma ej: "&opt=ctx,currsel" 
-            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu${selectedField}`;
+            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu&select=clearall${selectedField}`;
             document.getElementById(frameId).setAttribute('src', frameUrl);
         }
 
