@@ -21,6 +21,14 @@
         const SHEETID = 'b6491bc5-2afb-4661-9b2e-b9624eb0e440';
         const OBJID = '145c0dfa-f7bf-4983-b35c-2a58a5dc1369';
 
+        //     Selección aplicada
+
+
+        const field = 'Estado_Cliente_Camp_Soja_Activa_Acc';
+        const value = 'Alta';
+        const selectedField = `&select=${field},${value}`;
+
+
         //    MAIN
 
         (async function main() {
@@ -146,7 +154,8 @@
             return [session, enigmaApp];
         }
 
-        //    BONUS! DYNAMICALLY FETCH THEME
+        //    Esto es para obtener el tema aplicado en el tablero, pero si quieren reducir el
+        // tiempo de respuesta pueden ponerlo en una constante y borrar esta función
 
         async function getTheme(enigmaApp) {
             const createAppProps = await enigmaApp.createSessionObject({
@@ -188,7 +197,8 @@
         //    HELPER FUNCTION TO GENERATE IFRAME
 
         function renderSingleIframe(frameId, appId, sheetId, objId, theme) {
-            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu`;
+            //a diferencia de sense las opciones "opt" se separan con coma ej: "&opt=ctx,currsel" 
+            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu${selectedField}`;
             document.getElementById(frameId).setAttribute('src', frameUrl);
         }
 
