@@ -188,7 +188,7 @@
         //    HELPER FUNCTION TO GENERATE IFRAME
 
         function renderSingleIframe(frameId, appId, sheetId, objId, theme) {
-            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu,currsel`;
+            const frameUrl = `https://${TENANT}/single/?appid=${appId}&sheet=${sheetId}&obj=${objId}&theme=${theme}&opt=ctxmenu`;
             document.getElementById(frameId).setAttribute('src', frameUrl);
         }
 
